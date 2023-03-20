@@ -39,7 +39,7 @@ public class StatsServiceTest {
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 8;
 
-        long actual = service.calculateAverageSum(sales);
+        long actual = service.calculateTopSales(sales);
         assertEquals(expected, actual);
 
         System.out.println(service.calculateTopSales(sales));
@@ -50,10 +50,10 @@ public class StatsServiceTest {
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 9;
 
-        long actual = service.calculateAverageSum(sales);
+        long actual = service.calculateLowSales(sales);
         assertEquals(expected, actual);
 
-        System.out.println(service.calculateTopSales(sales));
+        System.out.println(service.calculateLowSales(sales));
     }
 }
 
