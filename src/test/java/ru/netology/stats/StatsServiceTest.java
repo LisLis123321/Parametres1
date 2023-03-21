@@ -37,7 +37,7 @@ public class StatsServiceTest {
     @Test
     void shouldCalculateTopSales() {
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        long expected = 8;
+        long expected = 6;
 
         long actual = service.calculateTopSales(sales);
         assertEquals(expected, actual);
@@ -55,16 +55,27 @@ public class StatsServiceTest {
 
         System.out.println(service.calculateLowSales(sales));
     }
-}
 
-//    @Test
-//    void shouldCalculateLowAverageSales() {
-//        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-//        long expected = 3;
-//
-//        long actual = service.calculateLowAverageSales(sales);
-//        assertEquals(expected, actual);
-//
-//        System.out.println(service.calculateTopSales(sales));
-//    }
-//}
+
+    @Test
+    void shouldCalculateLowAverageSales() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 4;
+
+        long actual = service.calculateLowAverageSales(sales);
+        assertEquals(expected, actual);
+
+        System.out.println(service.calculateLowAverageSales(sales));
+    }
+
+    @Test
+    void shouldCalculateUnderAverageSales() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 5;
+
+        long actual = service.calculateUnderAverageSales(sales);
+        assertEquals(expected, actual);
+
+        System.out.println(service.calculateUnderAverageSales(sales));
+    }
+}
