@@ -13,14 +13,10 @@ public class StatsService {
     }
 
     public long calculateAverageSum(long[] sales) {
-        long sum = 0;
-        long average = 0;
-        for (long sale : sales) {
-            sum += sale;
-            average = sum / sales.length;
-        }
-        return average;
+      long average = calculateSum(sales) / sales.length;
+      return average;
     }
+
 
     public long calculateTopSales(long[] sales) {
         long maxValue = sales[0];
@@ -28,7 +24,7 @@ public class StatsService {
         for (int i = 1; i < sales.length; i++) {
             if (sales[i] > maxValue) {
                 maxValue = sales[i];
-                monthMain = i + 1;
+                monthMain = ++i;
             }
         }
         return monthMain;
@@ -42,7 +38,7 @@ public class StatsService {
             month++;
             long min = sales[0];
             if (sale < min) {
-                min = sale;
+
                 monthMain = month;
 
             }
@@ -53,16 +49,12 @@ public class StatsService {
     }
 
     public long calculateLowAverageSales(long[] sales) {
-        long sum = 0;
-        long average = 0;
-        for (long sale : sales) {
-            sum += sale;
-            average = sum / sales.length;
-        }
+        calculateAverageSum(sales);
+
         long count = 0;
         for (int i = 1; i < sales.length; i++) {
-            if (sales[i] < average) {
-                count++;
+            if (sales[i] < calculateAverageSum(sales)) {
+                ++count;
             }
 
         }
@@ -71,15 +63,10 @@ public class StatsService {
 
 
     public long calculateUnderAverageSales(long[] sales) {
-        long sum = 0;
-        long average = 0;
-        for (long sale : sales) {
-            sum += sale;
-            average = sum / sales.length;
-        }
+        calculateAverageSum(sales);
         long count = 0;
         for (int i = 1; i < sales.length; i++) {
-            if (sales[i] > average) {
+            if (sales[i] > calculateAverageSum(sales)) {
                 count++;
             }
 
